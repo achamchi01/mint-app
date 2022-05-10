@@ -15,7 +15,7 @@ async function main() {
 
   // We get the contract to deploy
   const GangCatsNFT = await hre.ethers.getContractFactory("GangCatsNFT");
-  const gangCatsNFT = await GangCatsNFT.deploy("Hello, Hardhat!");
+  const gangCatsNFT = await GangCatsNFT.deploy();
 
   await gangCatsNFT.deployed();
 
