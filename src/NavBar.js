@@ -11,15 +11,7 @@ const NavBar = ({ accounts, setAccounts }) => {
         }
     }
     return (
-        <div>
-
-            <div>Twitter</div>
-            <div>Discord</div>
-            <div>Telegram</div>
-
-            <div>About</div>
-            <div>Mint</div>
-            <div>Team</div>
+        <div style={{margin: "100px"}}>
 
             {isconnected ? (
                 <p>connected</p>

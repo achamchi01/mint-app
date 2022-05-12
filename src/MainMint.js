@@ -19,7 +19,9 @@ const MainMint = ({ accounts, setAccounts }) => {
                 signer
             );
             try {
-                const response = await contract.mint(BigNumber.from(mintAmount));
+                const response = await contract.mint(BigNumber.from(mintAmount), {
+                    value: ethers.utils.parseEther((0.02 * mintAmount).toString())
+                });
                 console.log('response: ' + response)
             }
             catch (err) {
@@ -40,12 +42,13 @@ const MainMint = ({ accounts, setAccounts }) => {
 
     return (
         <div>
-            <h1>GangCats</h1>
+            <h1>Mint App</h1>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
             { isConnected ? (
                 <div>
                     <div>
                         <button onClick={handleDecrement}>-</button>
+                        <input type="number" value={mintAmount} />
                         <button onClick={handleIncrement}>+</button>
                     </div>
                     <button onClick={handleMint}>Mint Now</button>
